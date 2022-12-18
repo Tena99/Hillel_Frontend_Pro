@@ -1,38 +1,34 @@
-// Task 7.
-// Change the first characters of words in the string to uppercase 'a'.toUpperCase().
-//  For example. By default the string is 'lorem ipsum', the result will be 'Lorem Ipsum'.
+// Task 8
+// Find the specified substring in the string and replace it with a new one.
+// The user enters the string, its substring to replace it, and the new substring.
+// Methods: indexOf, substring, substr
 
-const newString = "lorem ipsum dolor amen";
+let firstString = prompt(`1. Пожалуйста, введите любой текст`);
+console.log(firstString);
+let secondString = prompt(
+  `2. Пожалуйста, введите текст который вы хотите заменить`
+);
+console.log(secondString);
+let thirdString = prompt(
+  `3. Пожалуйста, введите текст на который вы хотите заменить указанный отрезок`
+);
+console.log(thirdString);
 
-let result;
-let pos = 0;
+// Положение искомого элемента
 
-while (pos !== -1) {
-  if (pos == 0) {
-    result = newString.substr(pos, 1).toUpperCase();
-    console.log(result);
-  } else {
-    result += newString.substr(pos + 1, 1).toUpperCase();
-    console.log(result + "   else");
-  }
+let IndexPos = firstString.indexOf(secondString);
 
-  let initialPos;
+// Вырезать подстроку до искомого элемента
 
-  if (pos == 0) {
-    initialPos = pos;
-  } else {
-    initialPos = pos + 1;
-    console.log(initialPos + " initial");
-  }
+let startSubstr = firstString.substring(0, IndexPos);
+console.log(startSubstr);
 
-  pos = newString.indexOf(" ", pos + 1);
-  console.log(pos);
+// Вырезать подстроку после искомого элемента
 
-  if (pos !== -1) result += newString.substring(initialPos + 1, pos + 1);
-  console.log(result);
+let endSubstr = firstString.substr(IndexPos + secondString.length);
+console.log(endSubstr);
 
-  if (initialPos > 0 && pos == -1) {
-    result += newString.substring(initialPos + 1, newString.stringLength);
-    document.write(result);
-  }
-}
+// Сложить полученный результат и вывести в консоль
+
+let result = startSubstr + thirdString + endSubstr;
+document.write(result);
