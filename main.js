@@ -1,19 +1,24 @@
-// Task 9
-// A string of any content (letters, numbers, symbols) is entered.
-// Find all numbers in the string. The result is a number. For example, if the given string is 23Gjf4uf21, the result is 23421
+//Task 10
+// Write a function to raise a number to the power of a degree
 
-let firstString = prompt("Введите любое значение");
-let result = "";
-console.log(firstString);
+let result;
 
-for (let i = 0; i < firstString.length; i++) {
-  let currentItem = firstString[i];
-  console.log(currentItem);
+// Option 1
 
-  let tmp = parseInt(currentItem);
-
-  if (!isNaN(tmp)) {
-    result += currentItem;
-    console.log("Result: " + result);
-  }
+function multiply_1(value, exponent) {
+  return (result = value ** exponent);
 }
+
+console.log(multiply_1(10, 2));
+
+// Option 2
+
+function multiply_2(value, exponent) {
+  let result = 1;
+  for (let i = 0; i < exponent; i++) {
+    result *= value;
+  }
+  return result;
+}
+
+console.log(multiply_2(10, 2));
