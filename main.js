@@ -1,8 +1,25 @@
-// Task 2.
-//What is your name? What year of birth are you? A message with the name and year is displayed.
-// For example, if the user answered "Sergey" and "1979" then "Sergey 1979" is displayed
+// Task 3.
+// Three numbers are entered. Determine which of them is the largest.
 
-let userName = prompt("What's your name?");
-let age = prompt("When were you born?");
+let first_number = prompt("Please enter the first number");
+let second_number = prompt("Please enter the second number");
+let third_number = prompt("Please enter the third number");
 
-alert(`Your name is ${userName} and you were born in ${age}`);
+if (
+  first_number == null ||
+  second_number == null ||
+  third_number == null ||
+  first_number == "" ||
+  second_number == "" ||
+  third_number == ""
+) {
+  alert(`Unfortunately, you did not specify one or more numbers.`);
+} else if (first_number >= second_number && first_number >= third_number) {
+  alert(`Thank you! The highest number is ${first_number}`);
+} else if (second_number >= first_number && second_number >= third_number) {
+  alert(`Thank you! The highest number is ${second_number}`);
+} else if (third_number >= first_number && third_number >= second_number) {
+  alert(`Thank you! The highest number is ${third_number}`);
+} else {
+  alert(`Please try again`);
+}
