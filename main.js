@@ -1,39 +1,19 @@
-// Task 4.
-// Three different numbers are entered. Find which one is the average (greater than one but less than the other).
+// Task 5.
+// Display on the page in one line, comma separated numbers from 10 to 20 and vice versa.
+// You can use - document.write('text');
 
-let first_number = prompt("Please enter the first number");
-let second_number = prompt("Please enter the second number");
-let third_number = prompt("Please enter the third number");
+for (let i = 10; i < 21; i++) {
+  if (i == 20) {
+    document.write(`${i}; `);
+  } else {
+    document.write(`${i}, `);
+  }
+}
 
-if (
-  first_number == null ||
-  second_number == null ||
-  third_number == null ||
-  first_number == "" ||
-  second_number == "" ||
-  third_number == ""
-) {
-  alert(`Unfortunately, you did not specify one or more numbers.`);
-} else if (first_number > second_number && first_number < third_number) {
-  alert(`Thank you! The average number is ${first_number}`);
-} else if (first_number < second_number && first_number > third_number) {
-  alert(`Thank you! The average number is ${first_number}`);
-} else if (second_number > first_number && second_number < third_number) {
-  alert(`Thank you! The average number is ${second_number}`);
-} else if (second_number < first_number && second_number > third_number) {
-  alert(`Thank you! The average number is ${second_number}`);
-} else if (third_number > first_number && third_number < second_number) {
-  alert(`Thank you! The average number is ${third_number}`);
-} else if (third_number < first_number && third_number > second_number) {
-  alert(`Thank you! The average number is ${third_number}`);
-} else if (first_number == second_number) {
-  alert(`Thank you! The average number is ${first_number}`);
-} else if (second_number == third_number) {
-  alert(`Thank you! The average number is ${second_number}`);
-} else if (third_number == first_number) {
-  alert(`Thank you! The average number is ${third_number}`);
-} else if (third_number < first_number && third_number > second_number) {
-  alert(`Thank you! The average number is ${third_number}`);
-} else {
-  alert(`Please try again`);
+for (let i = 20; i > 9; i--) {
+  if (i == 10) {
+    document.write(`${i}`);
+  } else {
+    document.write(`${i}, `);
+  }
 }
