@@ -1,19 +1,9 @@
-// Task 5.
-// Display on the page in one line, comma separated numbers from 10 to 20 and vice versa.
+// Task 6.
+// Output the multiplication table by 7.
 // You can use - document.write('text');
 
-for (let i = 10; i < 21; i++) {
-  if (i == 20) {
-    document.write(`${i}; `);
-  } else {
-    document.write(`${i}, `);
-  }
-}
-
-for (let i = 20; i > 9; i--) {
+for (let i = 1; i < 11; i++) {
   if (i == 10) {
-    document.write(`${i}`);
-  } else {
-    document.write(`${i}, `);
-  }
+    document.write(`${i * 7} `);
+  } else document.write(`${i * 7} ,`);
 }
