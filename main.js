@@ -1,12 +1,8 @@
-// Task 1.
-// The user enters two values. One is assigned to one variable and the other to another.
-// The values of the variables must be swapped so that the value of the first is in the second one and the value of the second is in the first one.
+// Task 2.
+//What is your name? What year of birth are you? A message with the name and year is displayed.
+// For example, if the user answered "Sergey" and "1979" then "Sergey 1979" is displayed
 
 let userName = prompt("What's your name?");
-let age = prompt("How old are you?");
+let age = prompt("When were you born?");
 
-let tmp = userName;
-userName = age;
-age = tmp;
-
-alert(`Your name is ${age} and your age is ${userName} `);
+alert(`Your name is ${userName} and you were born in ${age}`);
