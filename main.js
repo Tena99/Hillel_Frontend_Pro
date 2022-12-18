@@ -1,34 +1,19 @@
-// Task 8
-// Find the specified substring in the string and replace it with a new one.
-// The user enters the string, its substring to replace it, and the new substring.
-// Methods: indexOf, substring, substr
+// Task 9
+// A string of any content (letters, numbers, symbols) is entered.
+// Find all numbers in the string. The result is a number. For example, if the given string is 23Gjf4uf21, the result is 23421
 
-let firstString = prompt(`1. Пожалуйста, введите любой текст`);
+let firstString = prompt("Введите любое значение");
+let result = "";
 console.log(firstString);
-let secondString = prompt(
-  `2. Пожалуйста, введите текст который вы хотите заменить`
-);
-console.log(secondString);
-let thirdString = prompt(
-  `3. Пожалуйста, введите текст на который вы хотите заменить указанный отрезок`
-);
-console.log(thirdString);
 
-// Положение искомого элемента
+for (let i = 0; i < firstString.length; i++) {
+  let currentItem = firstString[i];
+  console.log(currentItem);
 
-let IndexPos = firstString.indexOf(secondString);
+  let tmp = parseInt(currentItem);
 
-// Вырезать подстроку до искомого элемента
-
-let startSubstr = firstString.substring(0, IndexPos);
-console.log(startSubstr);
-
-// Вырезать подстроку после искомого элемента
-
-let endSubstr = firstString.substr(IndexPos + secondString.length);
-console.log(endSubstr);
-
-// Сложить полученный результат и вывести в консоль
-
-let result = startSubstr + thirdString + endSubstr;
-document.write(result);
+  if (!isNaN(tmp)) {
+    result += currentItem;
+    console.log("Result: " + result);
+  }
+}
