@@ -1,21 +1,15 @@
-// Task 22. Напишите функцию, которая поверхностно сравнивает два объекта.
+// Task 23. MakePairs.
+// Напишите функцию, которая возвращает вложенный массив вида [[key, value], [key, value]].
 
-const isEqual = function (firstObject, secondObject) {
-  for (let item in firstObject) {
-    let tmp = item + firstObject[item];
-    let tmp2 = item + secondObject[item];
+const makePairs = function (object) {
+  let tmp = [];
 
-    console.log(`tmp1 - ${tmp}, tmp2 - ${tmp2}`);
-
-    if (tmp !== tmp2) {
-      return false;
-    }
+  for (let item in object) {
+    tmp.push([item, object[item]]);
   }
-  return true;
+
+  console.log(tmp);
 };
 
-const data = { a: 1, b: 1 };
-const data2 = { a: 1, b: 1 };
-const data3 = { a: 1, b: 2 };
-console.log(isEqual(data, data2)); // true
-console.log(isEqual(data, data3)); // false
+const data = { a: 1, b: 2 };
+console.log(makePairs(data)); // [['a', 1], ['b', 2]]
