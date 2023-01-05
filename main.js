@@ -1,35 +1,16 @@
-// Task 15.  Compact. Напишите функцию, которая очищает массив от нежелательных значений, таких как false, undefined, пустые строки, ноль, null.
+//Homework 16. Unique. Напишите функцию, которая убирает повторяющиеся значения.
 
-//Option 1
+const unique = (array) => {
+  let result = [];
 
-function compact(array) {
-  let result = "";
-
-  array.filter(function _typeofFilter(item) {
-    let tmp = typeof item;
-    console.log(tmp, item);
-
-    if (
-      (tmp == "number" && item !== 0) ||
-      (tmp == "string" && item.length > 0)
-    ) {
-      result += `${item}, `;
+  for (let i = 0; i < array.length; i++) {
+    if (!result.includes(array[i])) {
+      result.push(array[i]);
     }
-  });
+  }
 
   return result;
-}
+};
 
-const data = [0, 1, false, 2, undefined, "", 3, null, "a", "Hello"];
-console.log(compact(data)); // [1, 2, 3]
-
-// Option 2
-
-// function Compact(data) {
-//     return data.filter(function (item, index, array){
-//         return Boolean(item);
-//     });
-
-//  }
-
-//  alert(Compact([0, 1, false, 2, undefined, '', 3, null]));
+const data = [1, 2, 1, 2, 3];
+console.log(unique(data)); // [1, 2, 3]
