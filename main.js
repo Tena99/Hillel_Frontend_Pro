@@ -1,26 +1,20 @@
-// Task 24. getAccess. Реализовать метод так, чтобы для каждого объекта выводились корректные данные.
+// Task 25. call, apply, bind. Напишите все возможные варианты для подмены контекста чтобы вызов метода getFullName вывел нужный результат.
 
-function getAccess() {
-  if (this.access) {
-    return `Access granted, welcome ${this.firstName} ${this.lastName}`;
-  } else {
-    return `Sorry, you don\'t have access, ${this.firstName} ${this.lastName}`;
-  }
-}
-
-const guest = {
+const quest = {
   firstName: "John",
   lastName: "Konor",
-  access: false,
-  getAccess: getAccess,
+  getFullName: function () {
+    return this.firstName + " " + this.lastName;
+  },
 };
 
 const admin = {
   firstName: "Bob",
   lastName: "Morley",
-  access: true,
-  getAccess: getAccess,
 };
 
-console.log(guest.getAccess()); // "Sorry, you don't have access, John Konor"
-console.log(admin.getAccess()); // "Access granted, welcome Bob Morley"
+console.log(quest.getFullName()); // "Bob Morley"
+
+console.log(quest.getFullName.bind(admin)());
+console.log(quest.getFullName.call(admin));
+console.log(quest.getFullName.apply(admin));
