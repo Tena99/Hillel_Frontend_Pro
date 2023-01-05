@@ -1,15 +1,26 @@
-// Task 23. MakePairs.
-// Напишите функцию, которая возвращает вложенный массив вида [[key, value], [key, value]].
+// Task 24. getAccess. Реализовать метод так, чтобы для каждого объекта выводились корректные данные.
 
-const makePairs = function (object) {
-  let tmp = [];
-
-  for (let item in object) {
-    tmp.push([item, object[item]]);
+function getAccess() {
+  if (this.access) {
+    return `Access granted, welcome ${this.firstName} ${this.lastName}`;
+  } else {
+    return `Sorry, you don\'t have access, ${this.firstName} ${this.lastName}`;
   }
+}
 
-  console.log(tmp);
+const guest = {
+  firstName: "John",
+  lastName: "Konor",
+  access: false,
+  getAccess: getAccess,
 };
 
-const data = { a: 1, b: 2 };
-console.log(makePairs(data)); // [['a', 1], ['b', 2]]
+const admin = {
+  firstName: "Bob",
+  lastName: "Morley",
+  access: true,
+  getAccess: getAccess,
+};
+
+console.log(guest.getAccess()); // "Sorry, you don't have access, John Konor"
+console.log(admin.getAccess()); // "Access granted, welcome Bob Morley"
