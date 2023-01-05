@@ -1,22 +1,34 @@
-// ДЗ 17. IsEqual. Напишите функцию, которая сравнивает два массива и возвращает true, если они идентичны.
+// Task 18. Палиндром
+// Палиндромом называют слово или фразу, которая читается в обе стороны одинаково.
+// В этом задании нужно написать функцию, которая проверяет, является ли исходная строка палиндромом.
 
-const isEqual = (firstArray, secondArray) => {
-  if (firstArray.length == secondArray.length) {
-    for (let i = 0; i < firstArray.length; i++) {
-      if (firstArray[i] !== secondArray[i]) {
-        return false;
-      }
+function palindrome(str) {
+  tmp = str.split(" ");
+
+  let result = [];
+  let result2 = [];
+
+  for (let i = 0; i < tmp.length; i++) {
+    result.push(tmp[i].toLowerCase());
+
+    for (let j = 0; j < result[i].length; j++) {
+      result2.push(result[i][j]);
     }
-
-    return true;
   }
-  return false;
-};
 
-const arr1 = [1, 2, 3, 4];
-const arr2 = [1, 2, 3, 4];
-const arr3 = [1, 2, 3, 5];
-const arr4 = [1, 2, 3, 4, 5];
-console.log(isEqual(arr1, arr2)); // true
-console.log(isEqual(arr1, arr3)); // false
-console.log(isEqual(arr1, arr4)); // false
+  let result3 = result2.slice();
+  result3.reverse();
+
+  for (k = 0; k < result2.length; k++) {
+    if (result2[k] == result3[k]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+console.log(palindrome("racecar")); // true
+console.log(palindrome("table")); // false
+console.log(palindrome("Анна")); // true
+console.log(palindrome("А роза упала на лапу Азора")); // true
