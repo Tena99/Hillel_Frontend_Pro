@@ -1,24 +1,24 @@
-//Task 10
-// Write a function to raise a number to the power of a degree
+// Task 11
+// Напишите функцию remove_char(str), которая возвращает строку, очищенную от всех не буквенно-цифровых символов.
 
-let result;
+// 1. Делаем перебор
+// 2. Делаем проверку по UpperCase. Символы будут равны как своему upper так и lower case, а буквы нет.
+// 3. Делаем проверку на пробел
 
-// Option 1
+let str = "every., -/ hunter #! wishes ;: {} to $ % ^ & * know";
+let tmp;
+let result = "";
 
-function multiply_1(value, exponent) {
-  return (result = value ** exponent);
-}
+function removeСhar(str) {
+  for (i = 0; i < str.length; i++) {
+    tmp = str.substring(i, i + 1);
 
-console.log(multiply_1(10, 2));
-
-// Option 2
-
-function multiply_2(value, exponent) {
-  let result = 1;
-  for (let i = 0; i < exponent; i++) {
-    result *= value;
+    if (tmp !== tmp.toUpperCase() || tmp == " ") {
+      result += tmp;
+    }
   }
+
   return result;
 }
 
-console.log(multiply_2(10, 2));
+console.log(removeСhar(str)); // "every hunter wishes to know"
