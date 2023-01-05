@@ -1,79 +1,66 @@
-// Task 27
+// Task 28
 
-//action
+let trueLogin = "admin";
+let truePassword = "admin";
 
-const action = getAction();
+let _isLoggedIn = "isLoggedIn";
 
-function getAction() {
-  const action = prompt("Action?");
-  while (isActionInvalid(action)) {
-    prompt("Use only: + - / * ");
-  }
-  return action;
-}
+function CreateSignInForm() {
+  let signInForm = document.createElement("form");
+  let loginInput = document.createElement("input");
+  let passwordInput = document.createElement("input");
+  let submitButton = document.createElement("button");
 
-function isActionInvalid(action) {
-  return action !== "+" && action !== "-" && action !== "/" && action !== "*";
-}
+  loginInput.type = "text";
+  loginInput.placeholder = "Please enter your login";
+  passwordInput.type = "text";
+  passwordInput.placeholder = "Please enter your password";
+  submitButton.textContent = "Log In";
+  submitButton.type = "button";
 
-//operands
+  document.body.append(signInForm);
+  signInForm.append(loginInput);
+  signInForm.append(passwordInput);
+  signInForm.append(submitButton);
 
-const operands = [getOperands("Put operands")];
-let str = "";
-for (let i = 0; i < operands.length; i++) {
-  str += operands[i];
-}
-let arr = str.split(",");
-
-function getOperands(title) {
-  let operand = prompt(title);
-  while (isOperandInvalid(operand)) {
-    operand = prompt("Put the numbers separated by commas.");
-  }
-  return operand;
-}
-
-function isOperandInvalid(operand) {
-  return operand === null || operand.trim() === "" || operand < 0;
-}
-
-// написать подсчёт чисел массива
-
-let result = calculate(action);
-
-function calculate(action) {
-  let result = Number(arr[0]);
-
-  switch (action) {
-  case "+":
-    for (let i = 1; i < arr.length; ++i) {
-      result += Number(arr[i]);
+  submitButton.addEventListener("click", (e) => {
+    if (e.target.nodeName === "BUTTON") {
+      if (
+        loginInput.value === trueLogin &&
+        passwordInput.value === truePassword
+      ) {
+        signInForm.remove();
+        sessionStorage.setItem(_isLoggedIn, "true");
+        CreateWelcomeForm();
+      } else {
+        console.log("asda");
+        alert("Your login or password is incorrect");
+        loginInput.style = "border-color:red";
+        passwordInput.style = "border-color:red";
+      }
     }
-
-    return result;
-  case "-":
-    for (let i = 1; i < arr.length; ++i) {
-      result -= Number(arr[i]);
-    }
-
-    return result;
-  case "*":
-    for (let i = 1; i < arr.length; ++i) {
-      result *= Number(arr[i]);
-    }
-
-    return result;
-  case "/":
-    for (let i = 1; i < arr.length; ++i) {
-      result /= Number(arr[i]);
-    }
-
-    return result;
-  default:
-    alert("Something wrong");
-  }
+  });
 }
 
-calculate(action);
+function CreateWelcomeForm() {
+  let welcomeText = document.createElement("p");
+  welcomeText.textContent = "Welcome " + trueLogin;
+  let signOutButton = document.createElement("button");
+  signOutButton.textContent = "sign out";
 
-alert(result);
+  document.body.append(welcomeText);
+  document.body.append(signOutButton);
+
+  signOutButton.addEventListener("click", (e) => {
+    welcomeText.remove();
+    signOutButton.remove();
+    sessionStorage.setItem(_isLoggedIn, "false");
+    CreateSignInForm();
+  });
+}
+
+if (sessionStorage.getItem(_isLoggedIn) === "true") {
+  CreateWelcomeForm();
+} else {
+  CreateSignInForm();
+}
