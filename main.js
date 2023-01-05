@@ -1,24 +1,16 @@
-// Task 11
-// Напишите функцию remove_char(str), которая возвращает строку, очищенную от всех не буквенно-цифровых символов.
+// Task 12. Сравнение строк без учёта регистра
+// Напишите функцию comparison(str1, str2), которая сравнивает строки без учёта регистра символов.
 
-// 1. Делаем перебор
-// 2. Делаем проверку по UpperCase. Символы будут равны как своему upper так и lower case, а буквы нет.
-// 3. Делаем проверку на пробел
+function compareString(str1, str2) {
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
 
-let str = "every., -/ hunter #! wishes ;: {} to $ % ^ & * know";
-let tmp;
-let result = "";
-
-function removeСhar(str) {
-  for (i = 0; i < str.length; i++) {
-    tmp = str.substring(i, i + 1);
-
-    if (tmp !== tmp.toUpperCase() || tmp == " ") {
-      result += tmp;
-    }
+  if (str1 == str2) {
+    return true;
+  } else {
+    return false;
   }
-
-  return result;
 }
 
-console.log(removeСhar(str)); // "every hunter wishes to know"
+console.log(compareString("string", "StRiNg")); // true
+console.log(compareString("ABCDe", "AbcdW")); // false
