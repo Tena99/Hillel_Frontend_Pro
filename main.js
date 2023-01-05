@@ -1,16 +1,17 @@
-// ДЗ 20. Without. Напишите функцию, которая возвращает новый объект без указанных значений.
+// ДЗ 21. IsEmpty. Напишите функцию, которая делает поверхностную проверку объекта на пустоту.
 
-const without = function (object, ...args) {
-  let newObject = Object.assign({}, object);
-
-  for (let i = 0; i <= args.length; i++) {
-    let tmp = args[i];
-    delete newObject[tmp];
+const isEmpty = function (object) {
+  for (key in object) {
+    if (object[key] !== undefined) {
+      return false;
+    }
   }
 
-  return newObject;
+  return true;
 };
 
-const data = { a: 1, b: 2, c: 3 };
-console.log(data);
-console.log(without(data, "b", "c")); // { a: 1 }
+const data = { a: 1, b: undefined };
+const data2 = { a: undefined };
+
+console.log(isEmpty(data)); // false
+console.log(isEmpty(data2)); // true
