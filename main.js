@@ -1,16 +1,22 @@
-//Homework 16. Unique. Напишите функцию, которая убирает повторяющиеся значения.
+// ДЗ 17. IsEqual. Напишите функцию, которая сравнивает два массива и возвращает true, если они идентичны.
 
-const unique = (array) => {
-  let result = [];
-
-  for (let i = 0; i < array.length; i++) {
-    if (!result.includes(array[i])) {
-      result.push(array[i]);
+const isEqual = (firstArray, secondArray) => {
+  if (firstArray.length == secondArray.length) {
+    for (let i = 0; i < firstArray.length; i++) {
+      if (firstArray[i] !== secondArray[i]) {
+        return false;
+      }
     }
-  }
 
-  return result;
+    return true;
+  }
+  return false;
 };
 
-const data = [1, 2, 1, 2, 3];
-console.log(unique(data)); // [1, 2, 3]
+const arr1 = [1, 2, 3, 4];
+const arr2 = [1, 2, 3, 4];
+const arr3 = [1, 2, 3, 5];
+const arr4 = [1, 2, 3, 4, 5];
+console.log(isEqual(arr1, arr2)); // true
+console.log(isEqual(arr1, arr3)); // false
+console.log(isEqual(arr1, arr4)); // false
